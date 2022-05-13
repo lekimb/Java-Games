@@ -1,5 +1,8 @@
 # Hundir-la-Flota
-Versión para terminal del conocido juego de mesa Hundir la Flota. Se trata de un juego para un solo jugador, cuyo objetivo consistirá en hundir todos los barcos del tablero generados al azar por el programa. 
+Versión para terminal del conocido juego de mesa Hundir la Flota.
+
+Se trata de un juego para un solo jugador, cuyo objetivo consistirá en hundir todos los barcos del tablero generados al azar por el programa. 
+
 Puede escogerse entre tres niveles de dificultad (fácil, medio o difícil), variando con ello la cantidad y tipo de barcos, así como el número de disparos permitidos. 
 
 ## Clases
@@ -10,3 +13,11 @@ Las clases implementadas son las siguientes:
 - `Vista:` Ecargada de pintar cada turno en pantalla el estado actual del tablero, los disparos restantes y los mensajes de aviso ('tocado', 'hundido', 'agua')
 - `ConsoleColors:` Clase auxiliar de la clase Vista. Permite mostrar en distintos colores los mensajes de aviso.
 - `GameController:` Ejecuta el bucle de juego. Pone en comunicación las clases Partida y Vista.
+
+## Nota
+Tal y como está escrito el código, cada vez que se inicie una nueva partida se mostrará por pantalla el tablero generado, desvelando así la posición exacta de los barcos al jugador. Gracias a ello, puede comprobarse fácilmente el correcto funcionamiento del juego.
+
+Sin embargo, este no es un comportamiento adecuado si lo que se quiere es un juego verdaderamente funcional. Puede deshabilitarse este comportamiento fácilmente comentado la siguiente línea en GameController.java: 
+```java
+Vista.pintarTablero(partida.getTablero(), false);
+```
